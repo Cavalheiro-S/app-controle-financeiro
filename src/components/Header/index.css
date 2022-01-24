@@ -1,0 +1,50 @@
+.header_side{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 240px;
+}
+
+.header_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+}
+
+.header_section_logo{   
+    height: 30vh;
+}
+
+.header_section_menu{
+    height: 40vh;
+}
+
+.header_section_profile{
+    height: 30vh;
+}
+
+.section_profile_signup{
+    display: flex;
+}
+
+.section_profile_signup_span{
+    cursor: default;
+    transition: 0.2s ease all;
+    padding: 16px;
+}
+.span_login{
+    position: relative;
+    color: #20AB3E;
+    border-right: 1px solid #c4c4c4;
+}
+
+
+.span_login:hover{
+    background-color: #20AB3E;
+    color: white;
+}
+
+

@@ -1,0 +1,34 @@
+.card_container{
+    display: flex;
+    align-items: center;
+    width: 30vw;
+    height: 70vh;
+}
+
+.card_form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    padding: 16px 64px 16px 64px; 
+}
+
+
+.card_title{
+    font-size:2rem;
+    margin: 8px 0px;
+}
+
+.card_title_type{
+    color:#20AB3E
+}
+
+.card_title_describe{
+    margin-bottom: 8px;
+    font-weight: lighter;
+    font-size: 1.2rem;
+}
