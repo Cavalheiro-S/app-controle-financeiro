@@ -1,12 +1,13 @@
-.header_menu_item{
-    display: flex;
-    border: 1px solid transparent;
-    align-items: center;
-    gap: 16px;
-    padding: 12px 8px;
-    margin: 24px 0px;
-    list-style: none;
-    border-radius: 8px;
-    width: 200px;
-    transition: .2s ease all ;
+.header__item {
+  display: flex;
+  border: 1px solid transparent;
+  justify-content: center;
+  gap: 24px;
+  padding: 12px 4px;
+  margin: 24px 0px;
+  list-style: none;
+  border-radius: 8px;
+  width: 200px;
 }
+
+/*# sourceMappingURL=index.css.map */

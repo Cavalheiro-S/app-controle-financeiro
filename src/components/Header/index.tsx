@@ -17,25 +17,28 @@ export const Header = () => {
             name: "Despesa",
             classIcon: "fas fa-coins"
         }
-        
+
     ]
 
     return (
-        <header className="header_side">
-            <div className="header_section header_section_logo">
-                <div onClick={event => navigate("home")}
-                className="logo primary"></div>
+        <header className="header">
+            <div className="header__section header__logo">
+                <div
+                    onClick={event => navigate("home")}
+                    className="header__logo--primary">
+
+                </div>
             </div>
             <MenuHeader menuItems={menuItems} />
-            <div className="header_section header_section_profile">
-                <div className="section_profile_signup">
+            <div className="header__section header__profile">
+                <div className="header__signup">
                     <span
-                        className="section_profile_signup_span span_login"
+                        className="header__span header__login"
                         onClick={e => navigate("login")}>
                         Logar
                     </span>
                     <span
-                        className="section_profile_signup_span span_signup"
+                        className="header__span header__signup"
                     >
                         Criar Conta
                     </span>

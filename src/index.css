@@ -1,32 +1,28 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
-.App{
-  display: flex;
-  width: 100%;
-}
-
-.logo{
+.logo {
   height: 80px;
   width: 80px;
   border-radius: 50%;
 }
 
-.primary{
+.primary {
   background-color: #20AB3E;
   color: white;
 }
 
-.primaryText{
+.primaryText {
   color: #20AB3E;
 }
 
-
-.disabled{
+.disabled {
   background-color: none;
-  color:#c4c4c4;
+  color: #c4c4c4;
 }
+
+/*# sourceMappingURL=index.css.map */

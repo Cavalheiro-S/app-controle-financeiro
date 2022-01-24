@@ -1,0 +1,51 @@
+$primaryColor: #20AB3E;
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 240px;
+    width: 100vw;
+
+    &__section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 240px;
+    }
+
+    &__logo{
+        height: 30vh;
+    }
+
+    &__logo--primary{
+        background-color: $primaryColor;
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+    }
+
+    &__menu{
+        height: 40vh;
+    }
+
+    &__profile{
+        height: 30vh;
+    }
+
+    &__span{
+        cursor: default;
+        transition: .2s ease all;
+        padding:  16px;
+    }
+
+    &__login:hover{
+        background-color: $primaryColor;
+        color: white;
+    }
+
+    &__signup{
+        display: flex;
+    }
+}

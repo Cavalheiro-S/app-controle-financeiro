@@ -10,6 +10,9 @@ export const Dashboard = () => {
 
     return (
         <>
+            <div style={{display:"flex", alignItems:"flex-start", height:"100%"}}>
+                Teste
+            </div>
             <Table
                 tableData={investimentContext?.objectsTable}
                 tableTitle={["Investimentos"]}

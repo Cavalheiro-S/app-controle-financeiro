@@ -10,9 +10,9 @@ export const MenuHeader = ({ menuItems }: MenuProps) => {
 
 
     return (
-        <div className="header_section header_section_menu">
+        <div className="header__section header__menu">
             <HeaderProvider>
-                <ul className="header_menu">
+                <ul className="header__list">
                     {menuItems.map((item, index) => {
                         return (
                             <ItemHeader

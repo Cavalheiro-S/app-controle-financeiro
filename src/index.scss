@@ -1,0 +1,30 @@
+$primary-color: #20AB3E;
+$disabled: #c4c4c4;
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Rubik', sans-serif;
+  }
+
+.logo{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.primary{
+  background-color: $primary-color;
+  color: white;
+}
+
+.primaryText{
+  color: $primary-color;
+}
+
+
+.disabled{
+  background-color: none;
+  color:$disabled;
+}

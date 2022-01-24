@@ -17,7 +17,8 @@ export const ItemHeader = ({index, name, logoClass }: ItemProps) => {
     const navigate = useNavigate();
     return (
         <li
-            className={`header_menu_item ${item.itemActive === index+1 ? "primary" : "disabled"}`}
+            className={`header__item ${item.itemActive === index+1 ? "primary" : "disabled"}`}
+            
             onClick={event => {
                 navigate(name);
                 item.setItemActive(index+1);

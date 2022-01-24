@@ -1,0 +1,14 @@
+.header{
+
+    &__item{
+        display: flex;
+        border: 1px solid transparent;
+        justify-content: center;
+        gap: 24px;
+        padding: 12px 8px;
+        margin: 24px 0px;
+        list-style: none;
+        border-radius: 8px;
+        width: 200px;
+    }
+}
