@@ -1,0 +1,26 @@
+.card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70vh;
+    width: 30vw;
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    padding: 16px 64px 16px 64px;
+
+    &__title {
+        font-size: 2rem;
+        margin: 8px 0px;
+    }
+
+    &__type {
+        color: $primary-color;
+    }
+
+    &__describe {
+        margin-bottom: 8px;
+        font-weight: lighter;
+        font-size: 1.2rem;
+    }
+}

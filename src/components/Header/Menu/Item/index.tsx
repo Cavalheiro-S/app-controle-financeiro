@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { HeaderContext } from "../../../../common/context/HeaderContext";
-import "./index.css";
 
 interface ItemProps {
     index: number;

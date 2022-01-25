@@ -1,5 +1,3 @@
-import "./index.css";
-
 interface ContainerProps{
     children: JSX.Element
 }

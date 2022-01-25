@@ -1,5 +1,5 @@
 .button{
-    border: 1px solid #20AB3E;
+    border: 1px solid $primary-color;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -13,12 +13,18 @@
     cursor: pointer;
     transition: ease .2s all;
     box-shadow: 0px 5px 10px #c4c4c4;
-}
 
-.button:hover{ 
-    box-shadow: none;
-}
 
-.button i {
-    font-size: 24px;
+    &--primary{
+        color: white;
+        background-color: $primary-color;
+    }
+
+    &:hover{
+        box-shadow: none;
+    }
+
+    i{
+        font-size: 24px;
+    }
 }

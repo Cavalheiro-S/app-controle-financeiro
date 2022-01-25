@@ -1,4 +1,3 @@
-import "./index.css";
 import { InputProps } from "../../common/interfaces/InputProps";
 
 export const Input = ({ id, type, placeholder, select }: InputProps) => {

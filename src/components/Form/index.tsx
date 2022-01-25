@@ -6,7 +6,7 @@ export const Form = ({ inputs, buttons }: FormProps) => {
 
     return (
 
-        <form className="form_container_input">
+        <form className="form">
             {
                 inputs.map((input, index) => {
                     return (

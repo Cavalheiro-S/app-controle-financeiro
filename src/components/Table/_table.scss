@@ -1,0 +1,69 @@
+.section {
+    &__table {
+        width: 30vw;
+        height: 70vh;
+        text-align: center;
+    }
+
+    &__title {
+        height: 5vh;
+    }
+
+    &__span--highlight {
+        color: $primary-color;
+    }
+}
+
+
+.table {
+    display: block;
+    width: 30vw;
+    max-height: 65vh;
+    overflow: auto;
+
+    &__line {
+        &--pair {
+            background-color: white;
+        }
+
+        &--odd {
+            background-color: #cdf7c2;
+        }
+    }
+
+    &__header {
+        font-weight: bold;
+        background-color: $primary-color;
+        color: white;
+        font-size: 1.2;
+        position: sticky;
+        top: 0%;
+    }
+
+    &__data {
+        text-align: center;
+        padding: 10px;
+        min-width: 9.5vw;
+    }
+
+    &__button--delete {
+        position: absolute;
+        display: block;
+        visibility: visible;
+        border: none;
+        border-radius: 5px;
+        color: #eeeeee;
+        padding: 10px;
+        background-color: #d32424;
+
+        &:hover {
+            background-color: #df4f4f;
+        }
+    }
+}
+
+.tbody {
+    &__data {
+        height: 20px;
+    }
+}

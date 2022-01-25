@@ -1,5 +1,14 @@
 $primary-color: #20AB3E;
 $disabled: #c4c4c4;
+@import "./components/Header/header";
+@import "./components/Header/Menu/headerMenu";
+@import "./components/Header/Menu/Item/menuItem";
+@import "./components/Form/form";
+@import "./components/Card/card";
+@import "./components/Button/button";
+@import "./components/Home/home";
+@import "./components/Input/input";
+@import "./components/Table/table";
 
 *{
     box-sizing: border-box;

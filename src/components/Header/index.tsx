@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import "./index.css";
 import { MenuHeader } from "./Menu";
 export const Header = () => {
 

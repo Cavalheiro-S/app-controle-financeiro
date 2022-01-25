@@ -1,5 +1,4 @@
 import { ItemHeader } from "./Item";
-import "./index.css";
 import { HeaderProvider } from "../../../common/context/HeaderContext";
 
 type MenuProps  = {

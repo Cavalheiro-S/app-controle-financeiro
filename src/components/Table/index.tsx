@@ -1,44 +1,43 @@
 import { TableProps } from "../../common/interfaces/TableProps"
-import "./index.css"
 export const Table = ({ tableTitle, titleHead, tableData, removeItemTable }: TableProps) => {
 
     function hasRemoveItemTable(id: number): JSX.Element{
 
         if(removeItemTable){
-            return <button onClick={event => removeItemTable(id)} className="tableButtonDelete">X</button>
+            return <button onClick={event => removeItemTable(id)} className="table__button--delete">X</button>
         }
 
         return <></>
     }
 
     return (
-        <div className="divTable">
+        <section className="section__table">
 
-            <h2 className="tableTitle">
-                <span className="primaryText">{tableTitle[0]}</span>
+            <h2 className="section__title">
+                <span className="section__span--highlight">{tableTitle[0]}</span>
                 <span>{tableTitle[1]}</span>
             </h2>
-            <table className="tablePage">
+            <table className="table">
                 <thead>
-                    <tr className="tableLine">
+                    <tr className="table__line">
                         {titleHead.map((titleDataColumn, index) => {
-                            return <td className="tableData tableDataHeader" key={index}>{titleDataColumn}</td>
+                            return <td className="table__data table__header" key={index}>{titleDataColumn}</td>
                         })}
                     </tr>
                 </thead>
                 <tbody>
                     {tableData?.map((data, index) => {
                         return (
-                            <tr className={`tableLine ${index % 2 === 0 ? "selected" : ""}`} key={index}>
-                                <td className="tableData tableBodyData">{data.name}</td>
-                                <td className="tableData tableBodyData">{data.type}</td>
-                                <td className="tableData tableBodyData">R$ {data.value}</td>
+                            <tr className={`table__line${index % 2 === 0 ? "--pair" : "--odd"}`} key={index}>
+                                <td className="table__data tbody__data">{data.name}</td>
+                                <td className="table__data tbody__data">{data.type}</td>
+                                <td className="table__data tbody__data">R$ {data.value}</td>
                                 {hasRemoveItemTable(data.id)}
                             </tr>
                         )
                     })}
                 </tbody>
             </table>
-        </div>
+        </section>
     )
 }
