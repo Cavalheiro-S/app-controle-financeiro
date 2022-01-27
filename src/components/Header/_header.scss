@@ -1,10 +1,13 @@
 .header{
     display: flex;
+    background-color: white;
+    border-bottom: 1px solid #c4c4c4;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 15vh;
-    width: 100vw;
+    width: 100%;
+    padding: 0px 160px;
 
     &__section{
         display: flex;
@@ -14,22 +17,26 @@
     }
 
     &__logo{
-        height: 30vh;
+        display: flex;
+        justify-content: start;
+        width: 30vw;
     }
 
     &__logo--primary{
         background-color: $primary-color;
-        height: 64px;
-        width: 64px;
+        height: 48px;
+        width: 48px;
         border-radius: 50%;
     }
 
     &__menu{
-        height: 40vh;
+        width: 60vw;
     }
 
     &__profile{
-        height: 30vh;
+        display: flex;
+        justify-content: flex-end;
+        width: 30vw;
     }
 
     &__span{

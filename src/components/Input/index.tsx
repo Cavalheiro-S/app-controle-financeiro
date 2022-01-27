@@ -11,7 +11,7 @@ export const Input = ({ id, type, placeholder, select }: InputProps) => {
                     placeholder={placeholder}
                 >
                     {select.optionsOfSelect.map((option,index) => {
-                        return <option key={index} value={option.value}>{option.value}</option>
+                        return <option key={index} value={option}>{option}</option>
                     })}
                 </select>
             )
@@ -22,7 +22,8 @@ export const Input = ({ id, type, placeholder, select }: InputProps) => {
                 id={id}
                 className="input"
                 type={type}
-                placeholder={placeholder} />
+                placeholder={placeholder} 
+                />
         )
     }
 

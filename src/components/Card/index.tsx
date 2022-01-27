@@ -13,7 +13,7 @@ export const Card = ({ firstLineCard, title, describe, children }: CardProps) =>
         <div className="card">
             <h2 className="card__title">
                 {firstLineCard}
-                <br />
+                <br/>
                 <span className="card__type">
                     {title}
                 </span>

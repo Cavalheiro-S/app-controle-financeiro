@@ -1,17 +1,14 @@
 import { TypeProps } from "./FormProps";
 
-interface OptionsSelectProps{
-    value:string;
-}
 
 interface SelectsProps {
     isSelect: boolean;
-    optionsOfSelect:OptionsSelectProps[];
+    optionsOfSelect:string[];
 }
 
 export interface InputProps {
     id: string,
     type: TypeProps,
     placeholder: string,
-    select?: SelectsProps
+    select?: SelectsProps,
 }

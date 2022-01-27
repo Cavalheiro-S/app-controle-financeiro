@@ -1,7 +1,8 @@
 import { useContext } from "react"
 import { ExpenseContext } from "../../../common/context/ExpenseContext";
 import { InvestimentContext } from "../../../common/context/InvestimentContext"
-import { Table } from "../../Table";
+import { MessageCard } from "../../Card-Message";
+import { InfoCard } from "../../Info-Card";
 
 export const Dashboard = () => {
 
@@ -9,21 +10,15 @@ export const Dashboard = () => {
     const expenseContenxt = useContext(ExpenseContext)
 
     return (
-        <>
-            <div style={{display:"flex", alignItems:"flex-start", height:"100%"}}>
-                Teste
+        <section className="container__page dashboard">
+            <MessageCard classComponent="dashboard__message" />
+            <div style={{ display: "flex", gap: "64px" }}>
+                <InfoCard value={1400} describe="Renda Mensal" stringLogo="account_balance" />
+                <InfoCard value={expenseContenxt?.valueTotalExpense} describe="Despesas Mensais" stringLogo="money_off" />
+                <InfoCard value={investimentContext?.valueTotalInvestiment}
+                    describe="Patrimônio Investido" stringLogo="attach_money" />
             </div>
-            <Table
-                tableData={investimentContext?.objectsTable}
-                tableTitle={["Investimentos"]}
-                titleHead={["Nome", "Tipo", "Valor"]}
-            />
-            <Table
-                tableData={expenseContenxt?.objectsTable}
-                tableTitle={["Despesas"]}
-                titleHead={["Nome", "Tipo", "Valor"]}
-            />
-        </>
+        </section>
 
 
     )

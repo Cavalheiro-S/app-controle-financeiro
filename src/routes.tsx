@@ -3,7 +3,7 @@ import App from "./App";
 import { Dashboard } from "./components/Pages/Dashboard/Dashboard";
 import { Expense } from "./components/Pages/Expense/Expense";
 import Investiment from "./components/Pages/Investiment/Investiment";
-import { MainScreen } from "./components/Pages/MainScreen";
+import { MainScreen } from "./components/Pages/MainScreen/MainScreen";
 import { Signup } from "./components/Pages/Signup/Signup";
 
 const AppRoutes = () => {

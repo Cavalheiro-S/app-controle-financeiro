@@ -1,5 +1,5 @@
 import { TableProps } from "../../common/interfaces/TableProps"
-export const Table = ({ tableTitle, titleHead, tableData, removeItemTable }: TableProps) => {
+export const Table = ({ tableTitle, titleHead, tableData, classTable, removeItemTable }: TableProps) => {
 
     function hasRemoveItemTable(id: number): JSX.Element{
 
@@ -11,7 +11,7 @@ export const Table = ({ tableTitle, titleHead, tableData, removeItemTable }: Tab
     }
 
     return (
-        <section className="section__table">
+        <section className={`section__table ${classTable !== undefined ? classTable : ""}`}>
 
             <h2 className="section__title">
                 <span className="section__span--highlight">{tableTitle[0]}</span>

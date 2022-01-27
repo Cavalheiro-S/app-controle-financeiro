@@ -6,15 +6,15 @@ export const Header = () => {
     const menuItems = [
         {
             name: "Dashboard",
-            classIcon: ""
+            classIcon: "home"
         },
         {
             name: "Investimento",
-            classIcon: "fas fa-piggy-bank"
+            classIcon: "savings"
         },
         {
             name: "Despesa",
-            classIcon: "fas fa-coins"
+            classIcon: "payment"
         }
 
     ]

@@ -1,8 +1,29 @@
 .container{
-    background-color: #f4f4f4;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: $background-color;
+    padding: 0px 160px;
+    height: 85vh;
     width: 100%;
+
+    &__page {
+        background-color: $background-color;
+        width: 100%;
+    
+        &--flex {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          width: 100%;
+          flex-wrap: wrap;
+          padding: 2rem;
+        }
+    
+        &--grid {
+          display: grid;
+          grid-template-rows: 20vh 20vh 20vh;
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
 }

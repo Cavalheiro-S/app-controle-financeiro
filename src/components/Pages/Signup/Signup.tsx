@@ -6,7 +6,7 @@ import { ButtonProps } from "../../../common/interfaces/ButtonProps";
 
 export const Signup = () => {
 
-    function buttonClicked(){
+    function buttonClicked() {
 
     }
     const inputsTemp: InputProps[] = [
@@ -17,13 +17,18 @@ export const Signup = () => {
         },
         {
             id: "inputEmailSignup",
-            type: TypeProps.text,
-            placeholder: "Nome do Investimento"
+            type: TypeProps.email,
+            placeholder: "E-Mail"
         },
         {
             id: "inputPassSignup",
             type: TypeProps.password,
-            placeholder: "Nome do Investimento"
+            placeholder: "Senha"
+        },
+        {
+            id: "inputPassConfirmSignup",
+            type: TypeProps.password,
+            placeholder: "Confirme a senha"
         }
     ]
 
@@ -32,15 +37,17 @@ export const Signup = () => {
             text: "Adicionar",
             buttonClickedFunction: buttonClicked
         }]
-        
+
     return (
-        <Card
-            firstLineCard='Adicionando Um'
-            title='Cadastro'
-            describe='Precisamos de algumas informações para continuar'
-        >
-            <Form inputs={inputsTemp} buttons={buttonsTemp} />
-        </Card>
+        <section className="container__page signup">
+            <Card
+                firstLineCard='Adicionando Um'
+                title='Cadastro'
+                describe='Precisamos de algumas informações para continuar'
+            >
+                <Form inputs={inputsTemp} buttons={buttonsTemp} />
+            </Card>
+        </section>
     )
 
 }

@@ -1,4 +1,5 @@
 export interface TableProps{
+    classTable?: string;
     removeItemTable?: Function;
     tableTitle: string[];
     titleHead: Array<string>;

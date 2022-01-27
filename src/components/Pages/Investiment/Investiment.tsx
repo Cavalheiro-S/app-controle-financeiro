@@ -11,6 +11,38 @@ import { InvestimentContext } from "../../../common/context/InvestimentContext";
 const Investiment = () => {
 
     const investimentContext = useContext(InvestimentContext);
+    function buttonClicked(): void {
+        const name = document.querySelector("#inputNameInvestiment") as HTMLInputElement;
+        const type = document.querySelector("#inputTypeInvestiment") as HTMLInputElement;
+        const value = document.querySelector("#inputValueInvestiment") as HTMLInputElement;
+
+        if (value.value === "") {
+            value.focus();
+            alert("O valor não pode ser deixado vazio");
+        }
+        else {
+            const objTableData: ObjectTable = {
+                id: investimentContext!.idObjectTable,
+                name: name.value,
+                type: type.value,
+                value: value.valueAsNumber
+            }
+
+            investimentContext?.setObjectsTable([...investimentContext.objectsTable, objTableData]);
+            investimentContext?.setIdObjectTable(investimentContext.idObjectTable + 1);
+            investimentContext?.setValueTotalInvestiment(investimentContext.valueTotalInvestiment + objTableData.value);
+        }
+
+    }
+
+    function removeItemFromTable(id: number) {
+
+        const newArrayOfObjects = investimentContext?.objectsTable.filter(
+            objectTable => objectTable.id !== id ? objectTable : false
+        );
+
+        investimentContext?.setObjectsTable(newArrayOfObjects as ObjectTable[]);
+    }
 
     const inputsTemp: InputProps[] = [
         {
@@ -24,11 +56,7 @@ const Investiment = () => {
             placeholder: "Tipo do Investimento",
             select: {
                 isSelect: true,
-                optionsOfSelect: [
-                    {value:"Renda Variável"},
-                    {value: "Renda Fixa"},
-                    {value: "Outro"}
-                ]
+                optionsOfSelect: ["Renda Variável", "Renda Fixa", "Outro"]
             }
         },
         {
@@ -44,36 +72,9 @@ const Investiment = () => {
             buttonClickedFunction: buttonClicked
         }]
 
-    function removeItemFromTable(id: number) {
-
-        const newArrayOfObjects = investimentContext?.objectsTable.filter(
-            objectTable => objectTable.id !== id ? objectTable : false
-        );
-
-        investimentContext?.setObjectsTable(newArrayOfObjects as ObjectTable[]);
-    }
-
-    function buttonClicked(): void {
-        const name = document.querySelector("#inputNameInvestiment") as HTMLInputElement;
-        const type = document.querySelector("#inputTypeInvestiment") as HTMLInputElement;
-        const value = document.querySelector("#inputValueInvestiment") as HTMLInputElement;
-
-        const objTableData: ObjectTable = {
-            id: investimentContext!.idObjectTable,
-            name: name.value,
-            type: type.value,
-            value: value.valueAsNumber
-        }
-
-        investimentContext?.setObjectsTable([...investimentContext.objectsTable, objTableData]);
-        investimentContext?.setIdObjectTable(investimentContext.idObjectTable + 1);
-        console.log(investimentContext);
-
-    }
-
     return (
-        <>
-            
+        <section className="container__page container__page--flex">
+
             <Table
                 removeItemTable={removeItemFromTable}
                 tableTitle={["Investimentos", " Adicionados"]}
@@ -86,7 +87,7 @@ const Investiment = () => {
             >
                 <Form inputs={inputsTemp} buttons={buttonsTemp} />
             </Card>
-        </>
+        </section>
 
     )
 

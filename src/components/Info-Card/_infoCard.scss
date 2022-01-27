@@ -1,0 +1,38 @@
+.infoCard{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    height: 152px;
+    width: 200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,0.25);
+    padding: 0px 16px;
+
+    &__img{
+        background: linear-gradient(180deg, #22B04A 0%, #1E9540 100%);
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    &__logo{
+        color: white;
+    }
+
+    &__value{
+        font-weight: bolder;
+        color: $grey-soft;
+        font-size: 1.4rem;
+    }
+
+    &__describe{
+        font-weight: lighter;
+    }
+
+}
