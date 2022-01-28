@@ -1,9 +1,7 @@
 import { createContext, SetStateAction, useState } from "react";
+import { PatternContextProps } from "../interfaces/PatternContextProps";
 import { ObjectTable } from "../interfaces/TableProps";
 
-interface InvestimentProviderProps {
-    children: JSX.Element | React.ReactElement;
-}
 
 interface InvestimentContextProps{
     idObjectTable: number;
@@ -16,7 +14,7 @@ interface InvestimentContextProps{
 
 export const InvestimentContext = createContext<InvestimentContextProps | null>(null);
 
-export const InvestimentProvider = ({ children }: InvestimentProviderProps) => {
+export const InvestimentProvider = ({ children }: PatternContextProps) => {
 
     const [objectsTable, setObjectsTable] = useState<ObjectTable[]>([])
     const [idObjectTable, setIdObjectTable] = useState(0);

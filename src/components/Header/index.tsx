@@ -32,12 +32,13 @@ export const Header = () => {
             <div className="header__section header__profile">
                 <div className="header__signup">
                     <span
-                        className="header__span header__login"
-                        onClick={e => navigate("login")}>
+                        className="header__span signup__login"
+                        >
                         Logar
                     </span>
                     <span
-                        className="header__span header__signup"
+                        className="header__span signup__register"
+                        onClick={e => navigate("login")}
                     >
                         Criar Conta
                     </span>

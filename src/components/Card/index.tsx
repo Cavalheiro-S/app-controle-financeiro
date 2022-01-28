@@ -1,4 +1,3 @@
-
 interface CardProps {
     firstLineCard: string;
     title: string;

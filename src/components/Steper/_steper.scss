@@ -1,0 +1,56 @@
+.steper{
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    height: 25vh;
+    width: 25vw;
+
+    &__step{
+        border-radius: inherit;
+        display: flex;
+        align-items: center;
+        height: 50%;
+        width: 100%;
+
+        &--active{
+            color: white;
+            background-color: $primary-color;
+        }
+    }
+
+    &__number{
+        color: white;
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    &__text{
+        display: flex;
+        flex-direction: column;
+        gap: .2em;
+        flex-grow: 3;
+        font-weight: lighter;
+    }
+
+    &__name{
+        font-size: 1rem;
+    }
+
+    &__description{
+        color: inherit;
+        font-size: .8rem;
+    }
+
+}
+
+.number{
+
+    &__background{
+        border-radius: 20%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        background-color: #333333;
+        padding: 12px;
+    }
+}

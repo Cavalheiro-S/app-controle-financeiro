@@ -1,4 +1,4 @@
-.header{
+.header {
     display: flex;
     background-color: white;
     border-bottom: 1px solid #c4c4c4;
@@ -9,48 +9,53 @@
     width: 100%;
     padding: 0px 160px;
 
-    &__section{
+    &__section {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 240px;
     }
 
-    &__logo{
+    &__logo {
         display: flex;
         justify-content: start;
         width: 30vw;
     }
 
-    &__logo--primary{
+    &__logo--primary {
         background-color: $primary-color;
         height: 48px;
         width: 48px;
         border-radius: 50%;
     }
 
-    &__menu{
+    &__menu {
         width: 60vw;
     }
 
-    &__profile{
+    &__profile {
         display: flex;
         justify-content: flex-end;
         width: 30vw;
     }
 
-    &__span{
+    &__span {
         cursor: default;
-        transition: .2s ease all;
-        padding:  16px;
+        transition: 0.2s ease all;
+        padding: 16px;
     }
+}
 
-    &__login:hover{
+.signup {
+    display: flex;
+
+    &__login:hover {
         background-color: $primary-color;
         color: white;
     }
-
-    &__signup{
-        display: flex;
+    &__register {
+        &:hover {
+            color: $primary-color;
+        }
     }
 }

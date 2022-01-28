@@ -1,10 +1,6 @@
 import React, { SetStateAction, useState } from "react";
+import { PatternContextProps } from "../interfaces/PatternContextProps";
 import { ObjectTable } from "../interfaces/TableProps";
-
-interface ExpenseProviderProps {
-    children: JSX.Element | React.ReactElement;
-}
-
 type ExpenseContextProps = {
     idObjectTable: number;
     setIdObjectTable: React.Dispatch<SetStateAction<number>>;
@@ -16,7 +12,7 @@ type ExpenseContextProps = {
 
 export const ExpenseContext = React.createContext<ExpenseContextProps | null>(null);
 
-export const ExpenseProvider = ({ children }: ExpenseProviderProps) => {
+export const ExpenseProvider = ({ children }: PatternContextProps) => {
 
     const [objectsTable, setObjectsTable] = useState<ObjectTable[]>([]);
     const [idObjectTable, setIdObjectTable] = useState(0);

@@ -65,20 +65,24 @@
 
 .header__span {
   cursor: default;
-  -webkit-transition: .2s ease all;
-  transition: .2s ease all;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
   padding: 16px;
 }
 
-.header__login:hover {
+.signup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.signup__login:hover {
   background-color: #20ab3e;
   color: white;
 }
 
-.header__signup {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.signup__register:hover {
+  color: #20ab3e;
 }
 
 .header__list {
@@ -481,12 +485,87 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.steper {
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  height: 25vh;
+  width: 25vw;
+}
+
+.steper__step {
+  border-radius: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50%;
+  width: 100%;
+}
+
+.steper__step--active {
+  color: white;
+  background-color: #20ab3e;
+}
+
+.steper__number {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.steper__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .2em;
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+  font-weight: lighter;
+}
+
+.steper__name {
+  font-size: 1rem;
+}
+
+.steper__description {
+  color: inherit;
+  font-size: .8rem;
+}
+
+.number__background {
+  border-radius: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #333333;
+  padding: 12px;
 }
 
 * {
