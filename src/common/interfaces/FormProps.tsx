@@ -11,5 +11,6 @@ export enum TypeProps{
     text = "text",
     password = "password",
     number = "number",
-    email = "email"
+    email = "email",
+    date = "date"
 }

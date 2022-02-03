@@ -1,3 +1,4 @@
+import moment from "moment"
 import { useContext } from "react"
 import { ExpenseContext } from "../../../common/context/ExpenseContext"
 import { ButtonProps } from "../../../common/interfaces/ButtonProps"
@@ -30,11 +31,13 @@ export const Expense = () => {
         const name = document.querySelector("#inputNameExpense") as HTMLInputElement;
         const type = document.querySelector("#inputTypeExpense") as HTMLInputElement;
         const value = document.querySelector("#inputValueExpense") as HTMLInputElement;
+        const date = document.querySelector("inputDateExpense") as HTMLInputElement;
 
         const objTableData: ObjectTable = {
             id: expenseContext!.idObjectTable,
             name: name.value,
             type: type.value,
+            date: date.valueAsDate === null ? moment().format("YYYY-MM-DD") : moment(date.valueAsDate).format("YYYY-MM-DD"),
             value: value.valueAsNumber
         }
 
@@ -63,6 +66,10 @@ export const Expense = () => {
                 optionsOfSelect: ["Alimentacao", "Livro", "Roupa E Vestuário"]
             },
             placeholder: "Tipo da Despesa"
+        },{
+            id: "inputDateExpense",
+            type: TypeProps.date,
+            placeholder: "Data da despesa"
         },
         {
             id: "inputValueExpense",
@@ -80,7 +87,7 @@ export const Expense = () => {
     return (
         <section className="container__page--flex">
             <Table
-                titleHead={["Nome", "Tipo", "Valor"]}
+                titleHead={["Nome", "Tipo", "Data","Valor"]}
                 tableData={expenseContext?.objectsTable}
                 tableTitle={["Despesas ", "Adicionadas"]}
                 removeItemTable={removeItemTable}

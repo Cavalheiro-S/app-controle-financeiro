@@ -4,6 +4,7 @@ export const Table = ({ tableTitle, titleHead, tableData, classTable, removeItem
     function hasRemoveItemTable(id: number): JSX.Element{
 
         if(removeItemTable){
+            
             return <button onClick={event => removeItemTable(id)} className="table__button--delete">X</button>
         }
 
@@ -31,6 +32,7 @@ export const Table = ({ tableTitle, titleHead, tableData, classTable, removeItem
                             <tr className={`table__line${index % 2 === 0 ? "--pair" : "--odd"}`} key={index}>
                                 <td className="table__data tbody__data">{data.name}</td>
                                 <td className="table__data tbody__data">{data.type}</td>
+                                <td className="table__data tbody__data">{data.date}</td>
                                 <td className="table__data tbody__data">R$ {data.value}</td>
                                 {hasRemoveItemTable(data.id)}
                             </tr>

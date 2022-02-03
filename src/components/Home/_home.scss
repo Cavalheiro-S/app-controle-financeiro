@@ -2,13 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $background-color;
+    background: $background-color;
     padding: 0px 160px;
     height: 85vh;
     width: 100%;
 
     &__page {
-        background-color: $background-color;
+        border-radius: 8px;
         width: 100%;
     
         &--flex {

@@ -1,47 +1,50 @@
 import { Card } from "../../Card";
 import { Table } from "../../Table";
 import { ObjectTable } from "../../../common/interfaces/TableProps";
-import { useContext } from "react";
+import { SetStateAction, useContext, useEffect, useMemo, useState } from "react";
 import { Form } from "../../Form";
 import { TypeProps } from "../../../common/interfaces/FormProps";
 import { ButtonProps } from "../../../common/interfaces/ButtonProps";
 import { InputProps } from "../../../common/interfaces/InputProps";
 import { InvestimentContext } from "../../../common/context/InvestimentContext";
+import axios from "axios";
+import { Investiment } from "../../../models/Investiment";
 
-const Investiment = () => {
 
-    const investimentContext = useContext(InvestimentContext);
+const InvestimentView = () => {
+    const [itemsOfTable, setItemsOfTable] = useState<ObjectTable[] | null>();
+    
+
+    useEffect( () => {
+        axios.get<ObjectTable[]>("http://localhost:5000/investiment/all")
+        .then( table => {
+            setItemsOfTable(table.data)
+        })
+
+    })
+
     function buttonClicked(): void {
-        const name = document.querySelector("#inputNameInvestiment") as HTMLInputElement;
-        const type = document.querySelector("#inputTypeInvestiment") as HTMLInputElement;
-        const value = document.querySelector("#inputValueInvestiment") as HTMLInputElement;
 
-        if (value.value === "") {
-            value.focus();
-            alert("O valor não pode ser deixado vazio");
-        }
-        else {
-            const objTableData: ObjectTable = {
-                id: investimentContext!.idObjectTable,
-                name: name.value,
-                type: type.value,
-                value: value.valueAsNumber
-            }
+        const investiment = new Investiment(
+            "inputNameInvestiment",
+            "inputTypeInvestiment",
+            "inputValueInvestiment",
+            "inputDateInvestiment");
 
-            investimentContext?.setObjectsTable([...investimentContext.objectsTable, objTableData]);
-            investimentContext?.setIdObjectTable(investimentContext.idObjectTable + 1);
-            investimentContext?.setValueTotalInvestiment(investimentContext.valueTotalInvestiment + objTableData.value);
-        }
+        axios.post("http://localhost:5000/investiment/add", {
+            name: investiment.name,
+            type: investiment.type,
+            value: investiment.value,
+            date: investiment.date
+        }).then(resp => console.log(resp.data))
+
 
     }
 
     function removeItemFromTable(id: number) {
-
-        const newArrayOfObjects = investimentContext?.objectsTable.filter(
-            objectTable => objectTable.id !== id ? objectTable : false
-        );
-
-        investimentContext?.setObjectsTable(newArrayOfObjects as ObjectTable[]);
+        axios.post("http://localhost:5000/investiment/delete", {
+            id
+        }).then(() => console.log("Item retirado"))
     }
 
     const inputsTemp: InputProps[] = [
@@ -58,6 +61,11 @@ const Investiment = () => {
                 isSelect: true,
                 optionsOfSelect: ["Renda Variável", "Renda Fixa", "Outro"]
             }
+        },
+        {
+            id: "inputDateInvestiment",
+            type: TypeProps.date,
+            placeholder: "Data do Investimento"
         },
         {
             id: "inputValueInvestiment",
@@ -78,8 +86,8 @@ const Investiment = () => {
             <Table
                 removeItemTable={removeItemFromTable}
                 tableTitle={["Investimentos", " Adicionados"]}
-                titleHead={["Nome", "Tipo", "Valor"]}
-                tableData={investimentContext?.objectsTable} />
+                titleHead={["Nome", "Tipo", "Data", "Valor"]}
+                tableData={itemsOfTable} />
             <Card
                 firstLineCard="Adicionando Um"
                 title="Investimento"
@@ -93,4 +101,4 @@ const Investiment = () => {
 
 }
 
-export default Investiment;
+export default InvestimentView;

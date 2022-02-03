@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ButtonProps } from "../../common/interfaces/ButtonProps";
 
 export const Button = ({ text, buttonClickedFunction }: ButtonProps) => {
@@ -9,7 +10,6 @@ export const Button = ({ text, buttonClickedFunction }: ButtonProps) => {
                 buttonClickedFunction();
             }}>
             {text}
-            <i className="fas fa-plus-square"></i>
         </button>
     )
 }

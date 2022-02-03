@@ -12,7 +12,7 @@
     padding: 0px 16px;
 
     &__img{
-        background: linear-gradient(180deg, #22B04A 0%, #1E9540 100%);
+        background: $linear-green;
         border-radius: 8px;
         display: flex;
         justify-content: center;
