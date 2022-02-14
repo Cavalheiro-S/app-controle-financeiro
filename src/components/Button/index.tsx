@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { ButtonProps } from "../../common/interfaces/ButtonProps";
+import { ButtonProps } from "../../common/interface/ButtonProps";
 
-export const Button = ({ text, buttonClickedFunction }: ButtonProps) => {
+export const Button = ({ text, handleClick }: ButtonProps) => {
 
     return (
         <button type="submit" className="button button--primary"
             onClick={event => {
                 event.preventDefault();
-                buttonClickedFunction();
+                handleClick();
             }}>
             {text}
         </button>

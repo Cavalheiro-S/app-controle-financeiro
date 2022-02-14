@@ -1,11 +1,11 @@
-import { TableProps } from "../../common/interfaces/TableProps"
+import { TableProps } from "../../common/interface/TableProps"
 export const Table = ({ tableTitle, titleHead, tableData, classTable, removeItemTable }: TableProps) => {
 
     function hasRemoveItemTable(id: number): JSX.Element{
 
         if(removeItemTable){
             
-            return <button onClick={event => removeItemTable(id)} className="table__button--delete">X</button>
+            return <td onClick={event => removeItemTable(id)} className="table__data table__data--delete">X</td>
         }
 
         return <></>
@@ -19,17 +19,17 @@ export const Table = ({ tableTitle, titleHead, tableData, classTable, removeItem
                 <span>{tableTitle[1]}</span>
             </h2>
             <table className="table">
-                <thead>
+                <thead className="thead">
                     <tr className="table__line">
                         {titleHead.map((titleDataColumn, index) => {
                             return <td className="table__data table__header" key={index}>{titleDataColumn}</td>
                         })}
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="tbody">
                     {tableData?.map((data, index) => {
                         return (
-                            <tr className={`table__line${index % 2 === 0 ? "--pair" : "--odd"}`} key={index}>
+                            <tr className={`table__line table__line${index % 2 === 0 ? "--pair" : "--odd"}`} key={index}>
                                 <td className="table__data tbody__data">{data.name}</td>
                                 <td className="table__data tbody__data">{data.type}</td>
                                 <td className="table__data tbody__data">{data.date}</td>

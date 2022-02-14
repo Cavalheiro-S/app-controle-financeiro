@@ -1,6 +1,6 @@
 import { createContext, SetStateAction, useState } from "react";
-import { PatternContextProps } from "../interfaces/PatternContextProps";
-import { ObjectTable } from "../interfaces/TableProps";
+import { PatternContextProps } from "../interface/PatternContextProps";
+import { ObjectTable } from "../interface/TableProps";
 
 
 interface InvestimentContextProps{

@@ -11,24 +11,27 @@ $linear-green: linear-gradient(180deg, #22B04A 0%, #1E9540 100%);
 @import "./components/Form/form";
 @import "./components/Card/card";
 @import "./components/Button/button";
-@import "./components/Home/home";
+@import "./components/Container/container";
 @import "./components/Input/input";
 @import "./components/Table/table";
-@import "./components/Pages/Dashboard/dashboard";
+@import "./Pages/Dashboard/dashboard";
+@import "./Pages/Signup/signup";
 @import "./components/Card-Message/message";
 @import "./components/Info-Card/infoCard";
-@import "./components/Pages/Signup/signup";
 @import "./components/Steper/steper";
+
 
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  font-family: "Rubik", sans-serif;
 }
 
-body{
+html,body{
+  height: 100%;
+  overflow-x: hidden;
   background-color: $background-color;
+  font-family: "Rubik", sans-serif;
 }
 
 .primaryText {

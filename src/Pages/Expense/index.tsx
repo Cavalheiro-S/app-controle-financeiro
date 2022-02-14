@@ -1,14 +1,11 @@
 import moment from "moment"
 import { useContext } from "react"
-import { ExpenseContext } from "../../../common/context/ExpenseContext"
-import { ButtonProps } from "../../../common/interfaces/ButtonProps"
-import { TypeProps } from "../../../common/interfaces/FormProps"
-import { InputProps } from "../../../common/interfaces/InputProps"
-import { ObjectTable } from "../../../common/interfaces/TableProps"
-import { Card } from "../../Card"
-import { Form } from "../../Form"
-import { Table } from "../../Table"
-
+import { ExpenseContext } from "../../common/context/ExpenseContext"
+import { ObjectTable } from "../../common/interface"
+import { Card } from "../../components/Card"
+import { Form } from "../../components/Form"
+import { Table } from "../../components/Table";
+import { expenseInputs } from "./formInputs";
 
 export const Expense = () => {
 
@@ -22,12 +19,8 @@ export const Expense = () => {
         expenseContext?.setObjectsTable(newArrayOfObjetsTable as ObjectTable[]);
     }
 
-    interface ValueToDashboardProps{
-        id: string[];
 
-    }
-
-    function buttonClicked(): void {
+    function handleClick(): void {
         const name = document.querySelector("#inputNameExpense") as HTMLInputElement;
         const type = document.querySelector("#inputTypeExpense") as HTMLInputElement;
         const value = document.querySelector("#inputValueExpense") as HTMLInputElement;
@@ -52,53 +45,27 @@ export const Expense = () => {
         }
     }
 
-    const inputsTemp: InputProps[] = [
-        {
-            id: "inputNameExpense",
-            type: TypeProps.text,
-            placeholder: "Nome Da Despesa"
-        },
-        {
-            id: "inputTypeExpense",
-            type: TypeProps.text,
-            select: {
-                isSelect: true,
-                optionsOfSelect: ["Alimentacao", "Livro", "Roupa E Vestuário"]
-            },
-            placeholder: "Tipo da Despesa"
-        },{
-            id: "inputDateExpense",
-            type: TypeProps.date,
-            placeholder: "Data da despesa"
-        },
-        {
-            id: "inputValueExpense",
-            type: TypeProps.number,
-            placeholder: "Valor Da Despesa"
-        }
-    ]
-
-    const buttonsTemp: ButtonProps[] = [
-        {
-            text: "Adicionar",
-            buttonClickedFunction: buttonClicked
-        }]
-
     return (
-        <section className="container__page--flex">
-            <Table
-                titleHead={["Nome", "Tipo", "Data","Valor"]}
-                tableData={expenseContext?.objectsTable}
-                tableTitle={["Despesas ", "Adicionadas"]}
-                removeItemTable={removeItemTable}
-            />
+        <section className="container__page container__page--flex">
+
             <Card
                 firstLineCard="Adicionando Uma"
                 title="Despesa"
                 describe="Preencha as informações para adicionar uma nova despesa"
             >
-                <Form inputs={inputsTemp} buttons={buttonsTemp} />
+                <Form
+                    inputs={expenseInputs}
+                    buttons={[{
+                        text: "Adicionar",
+                        handleClick: handleClick
+                    }]} />
             </Card>
+            <Table
+                titleHead={["Nome", "Tipo", "Data", "Valor"]}
+                tableData={expenseContext?.objectsTable}
+                tableTitle={["Despesas ", "Adicionadas"]}
+                removeItemTable={removeItemTable}
+            />
         </section>
     )
 }

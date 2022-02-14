@@ -1,6 +1,6 @@
 import React, { SetStateAction } from "react";
 import { useState } from "react";
-import { PatternContextProps } from "../interfaces/PatternContextProps";
+import { PatternContextProps } from "../interface/PatternContextProps";
 
 export interface SignupProps{
     name: string;

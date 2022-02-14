@@ -5,9 +5,11 @@
         max-width: 600px;
         height: 400px;
         text-align: center;
+        overflow-x: scroll;
     }
 
     &__title {
+        font-size: 1.5rem;
         font-weight: normal;
         height: 5vh;
     }
@@ -18,12 +20,13 @@
 }
 
 .table {
-    display: block;
     max-width: 600px;
     max-height: 400px;
-    overflow: auto;
+    overflow-x: scroll;
+    border-collapse: collapse;
 
     &__line {
+        position: relative;
         &--pair {
             background-color: #eeeeee;
         }
@@ -43,19 +46,13 @@
 
     &__data {
         text-align: center;
-        padding: 8px;
-        min-width: calc(390px / 3);
-        font-size: 0.8rem;
+        padding: 16px;
+        font-size: 1rem;
+        min-width: 100%;
     }
 
-    &__button--delete {
-        position: absolute;
-        display: block;
-        visibility: visible;
-        border: none;
-        border-radius: 5px;
+    &__data--delete {
         color: #eeeeee;
-        padding: 8px;
         background-color: #d32424;
 
         &:hover {
@@ -67,6 +64,22 @@
 .tbody {
     &__data {
         font-weight: lighter;
-        height: 20px;
+        min-height: 20px;
     }
+}
+
+@media all and (max-width:1024px){
+
+    .section{
+        &__table{
+            width: 100%;
+        }
+    }
+    .table{
+        &__data{
+            padding: 8px;
+            min-width: 100%;
+        }
+    }
+
 }

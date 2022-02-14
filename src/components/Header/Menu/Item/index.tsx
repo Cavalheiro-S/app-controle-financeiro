@@ -9,20 +9,20 @@ interface ItemProps {
 }
 
 
-export const ItemHeader = ({index, name, stringLogo }: ItemProps) => {
+export const ItemHeader = (props : ItemProps) => {
 
     const item = useContext(HeaderContext);
     const navigate = useNavigate();
     return (
         <li
-            className={`header__item ${item.itemActive === index+1 ? "primary" : "disabled"}`}
+            className={`header__item ${item.itemActive === props.index+1 ? "primary" : "disabled"}`}
             onClick={event => {
-                navigate(name);
-                item.setItemActive(index+1);
+                navigate(props.name);
+                item.setItemActive(props.index+1);
             }}
         >
-            <span className="material-icons">{stringLogo}</span>
-            <span>{name}</span>
+            <span className="material-icons">{props.stringLogo}</span>
+            <span>{props.name}</span>
         </li>
     )
 }

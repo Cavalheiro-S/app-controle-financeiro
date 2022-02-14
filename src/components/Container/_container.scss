@@ -3,9 +3,9 @@
     justify-content: center;
     align-items: center;
     background: $background-color;
-    padding: 0px 160px;
-    height: 85vh;
+    padding: 80px 160px;
     width: 100%;
+    min-height: 85vh;
 
     &__page {
         border-radius: 8px;
@@ -17,6 +17,7 @@
           justify-content: space-around;
           width: 100%;
           flex-wrap: wrap;
+          gap: 160px;
           padding: 2rem;
         }
     
@@ -26,4 +27,19 @@
           grid-template-columns: 1fr 1fr 1fr;
         }
       }
+}
+
+@media all and (max-width:1024px){
+
+  .container{
+    padding: 0%;
+
+    &__page{
+      padding: 80px 0 0 0 ;
+
+      &--flex{
+        gap: 80px;
+      }
+    }
+  }
 }

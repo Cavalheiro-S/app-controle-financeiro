@@ -1,6 +1,6 @@
 import { Input } from "../Input"
 import { Button } from "../Button"
-import { FormProps } from "../../common/interfaces/FormProps.js"
+import { FormProps } from "../../common/interface/FormProps.jsx"
 
 export const Form = ({ inputs, buttons }: FormProps) => {
 
@@ -15,8 +15,8 @@ export const Form = ({ inputs, buttons }: FormProps) => {
                             id={input.id}
                             type={input.type}
                             placeholder={input.placeholder}
-                            select={input.select} 
-                            />
+                            select={input.select}
+                        />
                     )
                 })
             }
@@ -26,7 +26,7 @@ export const Form = ({ inputs, buttons }: FormProps) => {
                         <Button
                             key={index}
                             text={button.text}
-                            buttonClickedFunction={button.buttonClickedFunction} />)
+                            handleClick={button.handleClick} />)
                 })
             }
         </form>

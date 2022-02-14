@@ -7,10 +7,3 @@ export interface FormProps{
 }
 
 
-export enum TypeProps{
-    text = "text",
-    password = "password",
-    number = "number",
-    email = "email",
-    date = "date"
-}

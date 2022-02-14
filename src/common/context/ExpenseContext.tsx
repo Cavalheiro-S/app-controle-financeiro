@@ -1,6 +1,6 @@
 import React, { SetStateAction, useState } from "react";
-import { PatternContextProps } from "../interfaces/PatternContextProps";
-import { ObjectTable } from "../interfaces/TableProps";
+import { PatternContextProps } from "../interface/PatternContextProps";
+import { ObjectTable } from "../interface/TableProps";
 type ExpenseContextProps = {
     idObjectTable: number;
     setIdObjectTable: React.Dispatch<SetStateAction<number>>;

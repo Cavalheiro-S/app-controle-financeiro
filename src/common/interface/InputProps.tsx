@@ -1,4 +1,4 @@
-import { TypeProps } from "./FormProps";
+import { TypeEnum } from "../enum/typeEnum";
 
 
 interface SelectsProps {
@@ -8,7 +8,7 @@ interface SelectsProps {
 
 export interface InputProps {
     id: string,
-    type: TypeProps,
+    type: TypeEnum,
     placeholder: string,
     select?: SelectsProps,
 }

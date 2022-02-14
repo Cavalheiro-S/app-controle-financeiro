@@ -1,15 +1,14 @@
-import { Card } from "../../Card";
-import { Form } from "../../Form";
-import { TypeProps } from "../../../common/interfaces/FormProps";
-import { InputProps } from "../../../common/interfaces/InputProps";
-import { ButtonProps } from "../../../common/interfaces/ButtonProps";
-import { SignupContext, SignupProps } from "../../../common/context/SignupContext";
+import { Card } from "../../components/Card";
+import { Form } from "../../components/Form";
+import { SignupContext, SignupProps } from "../../common/context/SignupContext";
 import { useContext } from "react";
-import { Steper } from "../../Steper";
+import { Steper } from "../../components/Steper";
+import { signupInputs } from "./formInput";
 
 export const Signup = () => {
     const signupContext = useContext(SignupContext);
-    function buttonClicked() {
+
+    function handleClick() {
         const name = document.querySelector("#inputFullNameSignup") as HTMLInputElement;
         const email = document.querySelector("#inputEmailSignup") as HTMLInputElement;
         const password = document.querySelector("#inputPassSignup") as HTMLInputElement;
@@ -36,44 +35,22 @@ export const Signup = () => {
         }
 
     }
-    const inputsTemp: InputProps[] = [
-        {
-            id: "inputFullNameSignup",
-            type: TypeProps.text,
-            placeholder: "Nome Completo"
-        },
-        {
-            id: "inputEmailSignup",
-            type: TypeProps.email,
-            placeholder: "E-Mail"
-        },
-        {
-            id: "inputPassSignup",
-            type: TypeProps.password,
-            placeholder: "Senha"
-        },
-        {
-            id: "inputPassConfirmSignup",
-            type: TypeProps.password,
-            placeholder: "Confirme a senha"
-        }
-    ]
-
-    const buttonsTemp: ButtonProps[] = [
-        {
-            text: "Adicionar",
-            buttonClickedFunction: buttonClicked
-        }]
 
     return (
         <section className="container__page signup">
-            <Steper/> 
+            <Steper />
             <Card
                 firstLineCard='Adicionando Um'
                 title='Cadastro'
                 describe='Precisamos de algumas informações para continuar'
             >
-                <Form inputs={inputsTemp} buttons={buttonsTemp} />
+                <Form
+                    inputs={signupInputs}
+                    buttons={[{
+                        text: "Adicionar",
+                        handleClick: handleClick
+                    }]}
+                />
             </Card>
         </section>
     )

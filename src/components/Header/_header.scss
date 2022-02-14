@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     height: 15vh;
-    width: 100%;
+    width: 100vw;
     padding: 0px 160px;
 
     &__section {
@@ -18,7 +18,7 @@
 
     &__logo {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         width: 30vw;
     }
 
@@ -29,20 +29,83 @@
         border-radius: 50%;
     }
 
+    &__side {
+        height: 100%;
+        width: 100%;
+
+        .header__list {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
     &__menu {
         width: 60vw;
     }
 
     &__profile {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         width: 30vw;
     }
 
     &__span {
         cursor: default;
         transition: 0.2s ease all;
-        padding: 16px;
+    }
+}
+
+.sideMenu {
+    display: none;
+
+    &__close {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: #d32424;
+        position: absolute;
+        font-size: 2rem;
+        padding: 8px;
+        top: 10%;
+        right: 10%;
+        border-radius: 8px;
+        transition: 0.2s;
+
+        &:hover {
+            font-size: 2.2rem;
+        }
+
+        &__list {
+            display: block;
+        }
+    }
+
+    &__svg {
+        cursor: pointer;
+        &:hover {
+            width: 48px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: -100%;
+        left: 0%;
+        height: 80vh;
+        width: 100vw;
+        background-color: white;
+        transition: 0.5s ease all;
+
+        &--active {
+            transform: translateY(120%);
+        }
+
+        &--disabled {
+            display: block;
+        }
     }
 }
 
@@ -57,5 +120,35 @@
         &:hover {
             color: $primary-color;
         }
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .header {
+        padding: 0%;
+    }
+}
+
+@media all and (max-width: 968px) {
+    .header {
+        &__main {
+            display: none;
+        }
+
+        &__profile {
+            display: none;
+        }
+
+        &__logo {
+            width: 100%;
+        }
+    }
+
+    .sideMenu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
     }
 }

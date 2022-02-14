@@ -1,8 +1,8 @@
-import { useContext } from "react"
-import { ExpenseContext } from "../../../common/context/ExpenseContext";
-import { InvestimentContext } from "../../../common/context/InvestimentContext"
-import { MessageCard } from "../../Card-Message";
-import { InfoCard } from "../../Info-Card";
+import { useContext } from 'react';
+import { ExpenseContext } from "../../common/context/ExpenseContext";
+import { InvestimentContext } from "../../common/context/InvestimentContext"
+import { MessageCard } from "../../components/Card-Message";
+import { InfoCard } from "../../components/Info-Card";
 
 export const Dashboard = () => {
 
@@ -12,7 +12,7 @@ export const Dashboard = () => {
     return (
         <section className="container__page dashboard">
             <MessageCard classComponent="dashboard__message" />
-            <div style={{ display: "flex", gap: "64px" }}>
+            <div className='dashboard__card'>
                 <InfoCard value={1400} describe="Renda Mensal" stringLogo="account_balance" />
                 <InfoCard value={expenseContenxt?.valueTotalExpense} describe="Despesas Mensais" stringLogo="money_off" />
                 <InfoCard value={investimentContext?.valueTotalInvestiment}

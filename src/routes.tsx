@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
-import { Dashboard } from "./components/Pages/Dashboard/Dashboard";
-import { Expense } from "./components/Pages/Expense/Expense";
-import InvestimentView from "./components/Pages/Investiment/Investiment-View";
-import { MainScreen } from "./components/Pages/MainScreen/MainScreen";
-import { Signup } from "./components/Pages/Signup/Signup";
+import { Dashboard } from "./Pages/Dashboard"
+import { Expense } from "./Pages/Expense";
+import Investiment from "./Pages/Investiment";
+import { MainScreen } from "./Pages/MainScreen";
+import { Signup } from "./Pages/Signup";
 
 const AppRoutes = () => {
     
@@ -16,7 +16,7 @@ const AppRoutes = () => {
                     <Route path="dashboard" element={<Dashboard />} />
                     <Route path="home" element={<MainScreen />} />
                     <Route path="login" element={<Signup />} />
-                    <Route path="investimento" element={<InvestimentView />} />
+                    <Route path="investimento" element={<Investiment />} />
                     <Route path="despesa" element={<Expense />} />
                 </Route>
             </Routes>

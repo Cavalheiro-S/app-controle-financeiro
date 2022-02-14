@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { HeaderProviderProps, ItemHeaderProps } from "../interfaces/HeaderProps";
+import { HeaderProviderProps, ItemHeaderProps } from "../interface/HeaderProps";
 
 export const HeaderContext = createContext({} as ItemHeaderProps);
 

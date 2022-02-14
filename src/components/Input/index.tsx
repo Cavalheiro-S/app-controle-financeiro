@@ -1,4 +1,4 @@
-import { InputProps } from "../../common/interfaces/InputProps";
+import { InputProps } from "../../common/interface/InputProps";
 
 export const Input = ({ id, type, placeholder, select }: InputProps) => {
 

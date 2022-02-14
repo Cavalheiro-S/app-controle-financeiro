@@ -3,7 +3,7 @@ import { ExpenseProvider } from './common/context/ExpenseContext';
 import { InvestimentProvider } from './common/context/InvestimentContext';
 import { SignupProvider } from './common/context/SignupContext';
 import { Header } from './components/Header';
-import { Home } from './components/Home';
+import { Home } from './components/Container';
 
 function App() {
   return (

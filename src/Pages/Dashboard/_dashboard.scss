@@ -1,0 +1,44 @@
+.dashboard {
+    display: grid;
+    grid-template-rows: 27vh 27vh 27vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 80px 0px;
+
+    &__card{
+        display: flex;
+        gap: 24px;
+    }
+
+    &__message{
+        grid-column: 3/4;
+        grid-row:1/2;
+        padding: 16px;
+    }
+
+}
+
+.investiment{
+    
+    &__title{
+        font-weight: lighter;
+        
+    }
+}
+
+@media all and (max-width:1024px){
+
+    .dashboard{
+
+        &__message{
+            grid-column: 2/3;
+
+        }
+        &__card{
+            justify-self: center;
+            grid-column: 2/3;
+            grid-row: 2/5;
+            flex-direction: column;
+        }
+    }
+}
