@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, MenuItem, Select, TextField } from "@mui/material";
 import PageModel from "./Page-Model";
+import moment from "moment";
 
 const Investiment = () => {
 
@@ -48,7 +49,7 @@ const Investiment = () => {
                         <MenuItem value="outros">Outros</MenuItem>
                     </Select>
                     <TextField required fullWidth id="inputDateInvestiment" type="date"/>
-                    <TextField required fullWidth id="inputValueInvestiment" type="number" label="Value do Investimento" />
+                    <TextField required fullWidth id="inputValueInvestiment" type="number" label="Valor do Investimento" />
                     <Button type="submit" classes={{ root: "button" }} fullWidth id="buttonInvestiment">Adicionar </Button>
                 </form>
 

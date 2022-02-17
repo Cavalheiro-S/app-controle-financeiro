@@ -1,9 +1,7 @@
 import { Card } from "../../components/Card";
-import { Form } from "../../components/Form";
 import { SignupContext, SignupProps } from "../../common/context/SignupContext";
 import { useContext } from "react";
 import { Steper } from "../../components/Steper";
-import { signupInputs } from "./formInput";
 
 export const Signup = () => {
     const signupContext = useContext(SignupContext);
@@ -44,9 +42,9 @@ export const Signup = () => {
                 title='Cadastro'
                 describe='Precisamos de algumas informações para continuar'
             >
-                <Form>
+                <form>
 
-                </Form>
+                </form>
                    
             </Card>
         </section>

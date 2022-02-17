@@ -48,7 +48,7 @@ export const Expense = () => {
                         <MenuItem value="outros">Outros</MenuItem>
                     </Select>
                     <TextField required fullWidth id="inputDateExpense" type="date"/>
-                    <TextField required fullWidth id="inputValueExpense" type="number" label="Value da Despesa" />
+                    <TextField required fullWidth id="inputValueExpense" type="number" label="Valor da Despesa" />
                     <Button type="submit" classes={{ root: "button" }} fullWidth id="buttonExpense">Adicionar </Button>
                 </form>
                    
