@@ -1,37 +1,19 @@
-import { Input } from "../Input"
+// import { Input } from "../Input"
 import { Button } from "../Button"
 import { FormProps } from "../../common/interface/FormProps.jsx"
+import { FabProps, FormControl, MenuItem, Select, TextField } from "@mui/material"
 
-export const Form = ({ inputs, buttons }: FormProps) => {
+
+export const Form: React.FC = ( {children}, props : FormProps) => {
 
     return (
-
-        <form className="form">
+        <form noValidate={false} className="form">
             {
-                inputs.map((input, index) => {
-                    return (
-                        <Input
-                            key={index}
-                            id={input.id}
-                            type={input.type}
-                            placeholder={input.placeholder}
-                            select={input.select}
-                        />
-                    )
-                })
-            }
-            {
-                buttons.map((button, index) => {
-                    return (
-                        <Button
-                            key={index}
-                            text={button.text}
-                            handleClick={button.handleClick} />)
-                })
+                children
+            
+               
             }
         </form>
-
-
 
     )
 

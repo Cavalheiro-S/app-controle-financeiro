@@ -19,6 +19,13 @@
     }
 }
 
+
+.test{
+    &__row{
+        transform: translateX(-40%);
+    }
+}
+
 .table {
     max-width: 600px;
     max-height: 400px;
@@ -52,7 +59,9 @@
     }
 
     &__data--delete {
-        color: #eeeeee;
+        border: none;
+        width: 10px;
+        cursor: pointer;
         background-color: #d32424;
 
         &:hover {

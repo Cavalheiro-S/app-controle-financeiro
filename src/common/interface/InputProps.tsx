@@ -1,14 +1,7 @@
-import { TypeEnum } from "../enum/typeEnum";
-
-
-interface SelectsProps {
-    isSelect: boolean;
-    optionsOfSelect:string[];
-}
 
 export interface InputProps {
     id: string,
-    type: TypeEnum,
+    type: string,
     placeholder: string,
-    select?: SelectsProps,
+    selectOptions?: string[],
 }

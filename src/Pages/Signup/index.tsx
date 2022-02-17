@@ -44,13 +44,10 @@ export const Signup = () => {
                 title='Cadastro'
                 describe='Precisamos de algumas informações para continuar'
             >
-                <Form
-                    inputs={signupInputs}
-                    buttons={[{
-                        text: "Adicionar",
-                        handleClick: handleClick
-                    }]}
-                />
+                <Form>
+
+                </Form>
+                   
             </Card>
         </section>
     )

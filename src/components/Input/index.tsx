@@ -1,28 +1,17 @@
 import { InputProps } from "../../common/interface/InputProps";
 
-export const Input = ({ id, type, placeholder, select }: InputProps) => {
+export const Input = (props: InputProps) => {
 
     function changeToSelect() {
-        if (select) {
-            return (
-                <select
-                    id={id}
-                    className="input"
-                    placeholder={placeholder}
-                >
-                    {select.optionsOfSelect.map((option,index) => {
-                        return <option key={index} value={option}>{option}</option>
-                    })}
-                </select>
-            )
-        }
 
         return (
             <input
-                id={id}
+                id={props.id}
+                required
+                data-testid = {props.id}
                 className="input"
-                type={type}
-                placeholder={placeholder} 
+                type={props.type}
+                placeholder={props.placeholder} 
                 />
         )
     }

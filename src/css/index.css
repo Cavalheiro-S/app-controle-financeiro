@@ -3,7 +3,6 @@
   display: -ms-flexbox;
   display: flex;
   background-color: white;
-  border-bottom: 1px solid #c4c4c4;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -465,6 +464,11 @@
   color: #20ab3e;
 }
 
+.test__row {
+  -webkit-transform: translateX(-40%);
+          transform: translateX(-40%);
+}
+
 .table {
   max-width: 600px;
   max-height: 400px;
@@ -501,7 +505,9 @@
 }
 
 .table__data--delete {
-  color: #eeeeee;
+  border: none;
+  width: 10px;
+  cursor: pointer;
   background-color: #d32424;
 }
 

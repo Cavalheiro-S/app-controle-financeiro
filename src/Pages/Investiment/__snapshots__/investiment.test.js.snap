@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screen of Investiment Test if 'Investiment Card' has renderer 1`] = `
+<section
+  className="container__page container__page--flex"
+>
+  <div
+    className="card"
+  >
+    <h2
+      className="card__title"
+    >
+      Adicionando Um
+      <br />
+      <span
+        className="card__type"
+      >
+        Investimento
+      </span>
+    </h2>
+    <h3
+      className="card__describe"
+    >
+      Preencha as informações para adicionar uma nova investimento
+    </h3>
+    <form
+      className="form"
+    >
+      <input
+        className="input"
+        data-testid="inputNameInvestiment"
+        id="inputNameInvestiment"
+        placeholder="Nome do Investimento"
+        type="text"
+      />
+      <select
+        className="input"
+        data-testid="inputTypeInvestiment"
+        id="inputTypeInvestiment"
+        placeholder="Tipo do Investimento"
+      >
+        <option
+          value="Renda Variável"
+        >
+          Renda Variável
+        </option>
+        <option
+          value="Renda Fixa"
+        >
+          Renda Fixa
+        </option>
+        <option
+          value="Outro"
+        >
+          Outro
+        </option>
+      </select>
+      <input
+        className="input"
+        data-testid="inputDateInvestiment"
+        id="inputDateInvestiment"
+        placeholder="Data do Investimento"
+        type="date"
+      />
+      <input
+        className="input"
+        data-testid="inputValueInvestiment"
+        id="inputValueInvestiment"
+        placeholder="Valor do Investimento"
+        type="number"
+      />
+      <button
+        className="button button--primary"
+        data-testid="buttonInvestiment"
+        id="buttonInvestiment"
+        onClick={[Function]}
+        type="submit"
+      >
+        Adicionar
+      </button>
+    </form>
+  </div>
+  <section
+    className="section__table "
+  >
+    <h2
+      className="section__title"
+    >
+      <span
+        className="section__span--highlight"
+      >
+        Investimentos
+      </span>
+      <span>
+         Adicionados
+      </span>
+    </h2>
+    <table
+      className="table"
+      data-testid="tableInvestiment"
+      id="tableInvestiment"
+    >
+      <thead
+        className="thead"
+      >
+        <tr
+          className="table__line"
+        >
+          <td
+            className="table__data table__header"
+          >
+            Nome
+          </td>
+          <td
+            className="table__data table__header"
+          >
+            Tipo
+          </td>
+          <td
+            className="table__data table__header"
+          >
+            Data
+          </td>
+          <td
+            className="table__data table__header"
+          >
+            Valor
+          </td>
+        </tr>
+      </thead>
+      <tbody
+        className="tbody"
+      />
+    </table>
+  </section>
+</section>
+`;

@@ -1,50 +1,37 @@
-import moment from "moment"
-import { useContext } from "react"
-import { ExpenseContext } from "../../common/context/ExpenseContext"
+import { Button, MenuItem, Select, TextField } from "@mui/material"
+import axios from "axios"
+import { useEffect, useState } from "react"
 import { ObjectTable } from "../../common/interface"
 import { Card } from "../../components/Card"
-import { Form } from "../../components/Form"
-import { Table } from "../../components/Table";
-import { expenseInputs } from "./formInputs";
+
+import Table from "../../components/Table";
+import PageModel from "../Investiment/Page-Model"
 
 export const Expense = () => {
 
-    const expenseContext = useContext(ExpenseContext);
+    const [itemsOfTable, setItemsOfTable] = useState<ObjectTable[] | null>();
 
-    function removeItemTable(id: number): void {
-
-        const newArrayOfObjetsTable = expenseContext?.objectsTable.filter(
-            objectTable => objectTable.id !== id ? objectTable : false
-        )
-        expenseContext?.setObjectsTable(newArrayOfObjetsTable as ObjectTable[]);
+    function updateTable() {
+        axios.get<ObjectTable[]>("http://localhost:4000/expense/")
+            .then(tableData => setItemsOfTable(tableData.data));
     }
 
+    useEffect(() => {
+        updateTable();
+    }, [])
 
-    function handleClick(): void {
-        const name = document.querySelector("#inputNameExpense") as HTMLInputElement;
-        const type = document.querySelector("#inputTypeExpense") as HTMLInputElement;
-        const value = document.querySelector("#inputValueExpense") as HTMLInputElement;
-        const date = document.querySelector("inputDateExpense") as HTMLInputElement;
+    function AddNewExpense(event:React.FormEvent): void {
+        event.preventDefault();
+        const expenseModel = new PageModel("inputNameExpense", "inputTypeExpense", "inputValueExpense","inputDateExpense");
+        axios.post("http://localhost:4000/expense/", expenseModel.makeObjectWithValues())
+            .then(() => updateTable());
 
-        const objTableData: ObjectTable = {
-            id: expenseContext!.idObjectTable,
-            name: name.value,
-            type: type.value,
-            date: date.valueAsDate === null ? moment().format("YYYY-MM-DD") : moment(date.valueAsDate).format("YYYY-MM-DD"),
-            value: value.valueAsNumber
-        }
-
-        if (value.value === "") {
-            value.focus();
-            alert("O valor não pode ser deixado vazio");
-        }
-        else {
-            expenseContext?.setValueTotalExpense(expenseContext.valueTotalExpense + objTableData.value);
-            expenseContext?.setObjectsTable([...expenseContext.objectsTable, objTableData]);
-            expenseContext?.setIdObjectTable(expenseContext.idObjectTable + 1);
-        }
     }
 
+    function removeExpense(id: number) {
+        axios.delete(`http://localhost:4000/expense/${id}`)
+            .then(() => updateTable());
+    }
     return (
         <section className="container__page container__page--flex">
 
@@ -53,18 +40,25 @@ export const Expense = () => {
                 title="Despesa"
                 describe="Preencha as informações para adicionar uma nova despesa"
             >
-                <Form
-                    inputs={expenseInputs}
-                    buttons={[{
-                        text: "Adicionar",
-                        handleClick: handleClick
-                    }]} />
+                <form className="form" onSubmit={event => AddNewExpense(event)}>
+                <TextField required fullWidth id="inputNameExpense" label="Nome da Despesa" />
+                    <Select defaultValue="Alimentação" fullWidth id="inputTypeExpense">
+                        <MenuItem value="Alimentação">Alimentação</MenuItem>
+                        <MenuItem value="Roupa">Roupa</MenuItem>
+                        <MenuItem value="outros">Outros</MenuItem>
+                    </Select>
+                    <TextField required fullWidth id="inputDateExpense" type="date"/>
+                    <TextField required fullWidth id="inputValueExpense" type="number" label="Value da Despesa" />
+                    <Button type="submit" classes={{ root: "button" }} fullWidth id="buttonExpense">Adicionar </Button>
+                </form>
+                   
             </Card>
             <Table
+                id="tableExpense"
                 titleHead={["Nome", "Tipo", "Data", "Valor"]}
-                tableData={expenseContext?.objectsTable}
+                tableData={itemsOfTable}
                 tableTitle={["Despesas ", "Adicionadas"]}
-                removeItemTable={removeItemTable}
+                removeItemTable={removeExpense}
             />
         </section>
     )

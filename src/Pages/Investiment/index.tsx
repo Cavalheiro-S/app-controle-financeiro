@@ -1,62 +1,61 @@
 import { Card } from "../../components/Card";
-import { Table } from "../../components/Table";
+import Table from "../../components/Table";
 import { ObjectTable } from "../../common/interface";
 import { useEffect, useState } from "react";
-import { Form } from "../../components/Form";
 import axios from "axios";
-import moment from "moment";
-import { inputsInvestiment } from "./formInputs";
+import { Button, MenuItem, Select, TextField } from "@mui/material";
+import PageModel from "./Page-Model";
 
 const Investiment = () => {
 
     const [itemsOfTable, setItemsOfTable] = useState<ObjectTable[] | null>();
 
-    useEffect(() => {
-        axios.get<ObjectTable[]>("http://localhost:5000/investiment/")
-            .then(table => {
-                setItemsOfTable(table.data)
-            })
-    })
-
-    function handleClick(): void {
-
-        const inputName = document.querySelector(`#inputNameInvestiment`) as HTMLInputElement
-        const inputType = document.querySelector(`#inputTypeInvestiment`) as HTMLInputElement
-        const inputValue = document.querySelector(`#inputValueInvestiment`) as HTMLInputElement
-        const inputDate = document.querySelector(`#inputDateInvestiment`) as HTMLInputElement
-
-        axios.post("http://localhost:5000/investiment/", {
-            name: inputName.value ? inputName.value : "",
-            type: inputType.value,
-            value: inputValue.valueAsNumber ? inputValue.valueAsNumber : 0,
-            date: inputDate.valueAsDate
-                ? moment(inputDate.valueAsDate).add(1, "d").format("YYYY-MM-DD")
-                : moment().format("YYYY-MM-DD")
-        }).then(resp => console.log(resp.data))
+    function updateTable() {
+        axios.get<ObjectTable[]>("http://localhost:4000/investiment/")
+            .then(tableData => setItemsOfTable(tableData.data));
     }
 
-    function removeItemFromTable(id: number) {
-        axios.delete(`http://localhost:5000/investiment/${id}`)
-            .then(() => console.log("Item retirado"))
+    useEffect(() => {
+        updateTable();
+    }, [])
+
+    function AddNewInvestiment(event:React.FormEvent): void {
+        event.preventDefault();
+        const investimentModel = new PageModel("inputNameInvestiment","inputTypeInvestiment","inputValueInvestiment", "inputDateInvestiment");
+        axios.post("http://localhost:4000/investiment/", investimentModel.makeObjectWithValues())
+            .then(() => updateTable());
+
+    }
+
+    function removeInvestiment(id: number) {
+        axios.delete(`http://localhost:4000/investiment/${id}`)
+            .then(() => updateTable());
     }
 
     return (
         <section className="container__page container__page--flex">
-            
+
             <Card
                 firstLineCard="Adicionando Um"
                 title="Investimento"
                 describe="Preencha as informações para adicionar uma nova investimento"
             >
-                <Form inputs={inputsInvestiment}
-                    buttons={
-                        [{
-                            text: "Adicionar",
-                            handleClick: handleClick
-                        }]} />
+                <form className="form" onSubmit={event => AddNewInvestiment(event)}>
+                    <TextField required fullWidth id="inputNameInvestiment" label="Nome do Investimento" />
+                    <Select defaultValue="Renda Variavel" fullWidth id="inputTypeInvestiment">
+                        <MenuItem value="Renda Variavel">Renda Variavel</MenuItem>
+                        <MenuItem value="Renda Fixa">Renda Fixa</MenuItem>
+                        <MenuItem value="outros">Outros</MenuItem>
+                    </Select>
+                    <TextField required fullWidth id="inputDateInvestiment" type="date"/>
+                    <TextField required fullWidth id="inputValueInvestiment" type="number" label="Value do Investimento" />
+                    <Button type="submit" classes={{ root: "button" }} fullWidth id="buttonInvestiment">Adicionar </Button>
+                </form>
+
             </Card>
             <Table
-                removeItemTable={removeItemFromTable}
+                id="tableInvestiment"
+                removeItemTable={removeInvestiment}
                 tableTitle={["Investimentos", " Adicionados"]}
                 titleHead={["Nome", "Tipo", "Data", "Valor"]}
                 tableData={itemsOfTable} />

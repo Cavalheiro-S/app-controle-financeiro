@@ -1,45 +1,42 @@
+import moment from "moment"
 import { TableProps } from "../../common/interface/TableProps"
-export const Table = ({ tableTitle, titleHead, tableData, classTable, removeItemTable }: TableProps) => {
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material"
 
-    function hasRemoveItemTable(id: number): JSX.Element{
-
-        if(removeItemTable){
-            
-            return <td onClick={event => removeItemTable(id)} className="table__data table__data--delete">X</td>
-        }
-
-        return <></>
-    }
+export default (props: TableProps) => {
 
     return (
-        <section className={`section__table ${classTable !== undefined ? classTable : ""}`}>
-
-            <h2 className="section__title">
-                <span className="section__span--highlight">{tableTitle[0]}</span>
-                <span>{tableTitle[1]}</span>
-            </h2>
-            <table className="table">
-                <thead className="thead">
-                    <tr className="table__line">
-                        {titleHead.map((titleDataColumn, index) => {
-                            return <td className="table__data table__header" key={index}>{titleDataColumn}</td>
+        <TableContainer classes={{ root: "section__table" }} component={Paper}>
+            <Table sx={{ minWidth: 400 }} size="small" aria-label="a dense table">
+                <TableHead>
+                    <TableRow sx={{ backgroundColor: "#20ab3e" }}>
+                        {props.titleHead.map((title, index) => {
+                            return <TableCell key={index} sx={{ color: "white" }} align="center">{title}</TableCell>
                         })}
-                    </tr>
-                </thead>
-                <tbody className="tbody">
-                    {tableData?.map((data, index) => {
-                        return (
-                            <tr className={`table__line table__line${index % 2 === 0 ? "--pair" : "--odd"}`} key={index}>
-                                <td className="table__data tbody__data">{data.name}</td>
-                                <td className="table__data tbody__data">{data.type}</td>
-                                <td className="table__data tbody__data">{data.date}</td>
-                                <td className="table__data tbody__data">R$ {data.value}</td>
-                                {hasRemoveItemTable(data.id)}
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-        </section>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+
+                    {props.tableData ? props.tableData.map((data, index) => (
+                        <TableRow
+                            key={index}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        >
+                            <TableCell component="th" scope="row">
+                                {data.name}
+                            </TableCell>
+                            <TableCell align="right">{data.type}</TableCell>
+                            <TableCell align="right">{moment(data.date).format("DD/MM/YYYY")}</TableCell>
+                            <TableCell align="right">R${data.value}</TableCell>
+                            <TableCell
+                                sx={{ color: "white" }}
+                                onClick={event => props.removeItemTable!(data._id)}
+                                classes={{ root: "table__data--delete" }}>
+                                X
+                            </TableCell>
+                        </TableRow>
+                    )) : null}
+                </TableBody>
+            </Table>
+        </TableContainer>
     )
 }

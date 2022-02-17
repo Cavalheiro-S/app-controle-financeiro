@@ -1,14 +1,14 @@
 import { ButtonProps } from "../../common/interface/ButtonProps";
 
-export const Button = ({ text, handleClick }: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
 
     return (
-        <button type="submit" className="button button--primary"
+        <button id={props.id} data-testid={props.id} type="submit" className="button button--primary"
             onClick={event => {
                 event.preventDefault();
-                handleClick();
+                props.handleClick();
             }}>
-            {text}
+            {props.text}
         </button>
     )
 }

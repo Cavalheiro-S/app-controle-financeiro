@@ -1,21 +1,31 @@
-import { useContext } from 'react';
-import { ExpenseContext } from "../../common/context/ExpenseContext";
-import { InvestimentContext } from "../../common/context/InvestimentContext"
+import { useContext, useEffect } from 'react';
+
 import { MessageCard } from "../../components/Card-Message";
 import { InfoCard } from "../../components/Info-Card";
+import {useState} from 'react';
+import axios from 'axios';
 
 export const Dashboard = () => {
 
-    const investimentContext = useContext(InvestimentContext);
-    const expenseContenxt = useContext(ExpenseContext)
+    const [investimentTotal, setInvestimentTotal] = useState(0);
+    const [expenseTotal, setExpenseTotal] = useState(0);
+
+    useEffect(()=>{
+        
+        axios.get<number>("http://localhost:4000/investiment/total")
+        .then(total => setInvestimentTotal(total.data))
+
+        axios.get<number>("http://localhost:4000/expense/total")
+        .then(total => setExpenseTotal(total.data))
+    },[])
 
     return (
         <section className="container__page dashboard">
             <MessageCard classComponent="dashboard__message" />
             <div className='dashboard__card'>
                 <InfoCard value={1400} describe="Renda Mensal" stringLogo="account_balance" />
-                <InfoCard value={expenseContenxt?.valueTotalExpense} describe="Despesas Mensais" stringLogo="money_off" />
-                <InfoCard value={investimentContext?.valueTotalInvestiment}
+                <InfoCard value={expenseTotal} describe="Despesas Mensais" stringLogo="money_off" />
+                <InfoCard value={investimentTotal}
                     describe="Patrimônio Investido" stringLogo="attach_money" />
             </div>
         </section>
