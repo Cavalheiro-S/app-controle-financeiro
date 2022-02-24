@@ -5,12 +5,9 @@ import { HeaderContext } from "../../../../common/context/HeaderContext";
 interface ItemProps {
     index: number;
     name: string;
-    stringLogo: string;
 }
 
-
 export const ItemHeader = (props : ItemProps) => {
-
     const item = useContext(HeaderContext);
     const navigate = useNavigate();
     return (
@@ -21,7 +18,6 @@ export const ItemHeader = (props : ItemProps) => {
                 item.setItemActive(props.index+1);
             }}
         >
-            <span className="material-icons">{props.stringLogo}</span>
             <span>{props.name}</span>
         </li>
     )

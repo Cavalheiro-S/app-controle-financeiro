@@ -1,6 +1,5 @@
-.header{
-
-    &__item{
+.header {
+    &__item {
         display: flex;
         color: $primary-color;
         position: relative;
@@ -8,31 +7,15 @@
         justify-content: center;
         align-items: center;
         gap: 24px;
+        font-size: 1.2rem;
+        font-weight: bold;
         padding: 12px 0px;
         margin: 24px 0px;
         list-style: none;
         border-radius: 8px;
         width: 200px;
+        transition: ease .2s all;
         cursor: pointer;
 
-        &:hover{
-            &::after{
-                transform: translateX(40%);
-                visibility: visible;
-            }
-        }
-
-        &::after{
-            content: "";
-            visibility: hidden;
-            position: absolute;
-            border-radius: 3px;
-            height: 3px;
-            width: 80%;
-            background-color: $primary-color;
-            bottom: 0%;
-            left: -20%;
-            transition: .2s ease transform;
-        }
     }
 }

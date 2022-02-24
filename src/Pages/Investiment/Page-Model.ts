@@ -9,7 +9,7 @@ class PageModel {
 
     constructor(idName: string, idType: string, idValue: string, idDate: string){
         this.name = document.querySelector<HTMLInputElement>(`#${idName}`)!.value
-        this.type = document.querySelector<HTMLDivElement>(`#${idType}`)!.textContent
+        this.type = document.querySelector<HTMLInputElement>(`#${idType}`)!.value
         this.value = document.querySelector<HTMLInputElement>(`#${idValue}`)!.valueAsNumber
         this.date = moment(document.querySelector<HTMLInputElement>(`#${idDate}`)!.valueAsDate).add(1,"d").format("YYYY-MM-DD");
     }

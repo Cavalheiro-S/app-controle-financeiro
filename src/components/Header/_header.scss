@@ -17,7 +17,7 @@
 
     &__logo {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         width: 30vw;
     }
 
@@ -45,8 +45,13 @@
 
     &__profile {
         display: flex;
-        justify-content: center;
+        justify-content: end;
         width: 30vw;
+
+        span{
+            font-size: 1.1rem;
+            text-align: center;
+        }
     }
 
     &__span {
@@ -97,7 +102,7 @@
         width: 100vw;
         background-color: white;
         transition: 0.5s ease all;
-
+        z-index: 2;
         &--active {
             transform: translateY(120%);
         }
@@ -139,6 +144,7 @@
         }
 
         &__logo {
+            justify-content: center;
             width: 100%;
         }
     }

@@ -3,42 +3,43 @@
     grid-template-rows: 27vh 27vh 27vh;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    padding: 80px 0px;
 
-    &__card{
+    &__card {
         display: flex;
-        gap: 24px;
+        justify-content: center;
+        gap: 80px;
+        grid-column: 1/4;
     }
-
-    &__message{
-        grid-column: 3/4;
-        grid-row:1/2;
-        padding: 16px;
-    }
-
 }
 
-.investiment{
-    
-    &__title{
+.investiment {
+    &__title {
         font-weight: lighter;
-        
     }
 }
 
-@media all and (max-width:1024px){
-
-    .dashboard{
-
-        &__message{
+@media all and (max-width: 1024px) {
+    .dashboard {
+        &__message {
             grid-column: 2/3;
-
         }
-        &__card{
+        &__card {
             justify-self: center;
             grid-column: 2/3;
             grid-row: 2/5;
             flex-direction: column;
+        }
+    }
+}
+
+@media all and (max-width: 768px){
+    .dashboard{
+        padding: 80px 0px;
+
+        &__card{
+            gap: 80px;
+            grid-row-start: 1;
+            grid-column: 2/3;
         }
     }
 }

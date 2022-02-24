@@ -1,4 +1,4 @@
-import { Button, MenuItem, Select, TextField } from "@mui/material"
+import { Autocomplete, Button, MenuItem, Select, TextField } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { ObjectTable } from "../../common/interface"
@@ -18,11 +18,14 @@ export const Expense = () => {
 
     useEffect(() => {
         updateTable();
+        return () => {
+            setItemsOfTable(null);
+        }
     }, [])
 
-    function AddNewExpense(event:React.FormEvent): void {
+    function AddNewExpense(event: React.FormEvent): void {
         event.preventDefault();
-        const expenseModel = new PageModel("inputNameExpense", "inputTypeExpense", "inputValueExpense","inputDateExpense");
+        const expenseModel = new PageModel("inputNameExpense", "inputTypeExpense", "inputValueExpense", "inputDateExpense");
         axios.post("http://localhost:4000/expense/", expenseModel.makeObjectWithValues())
             .then(() => updateTable());
 
@@ -41,17 +44,20 @@ export const Expense = () => {
                 describe="Preencha as informações para adicionar uma nova despesa"
             >
                 <form className="form" onSubmit={event => AddNewExpense(event)}>
-                <TextField required fullWidth id="inputNameExpense" label="Nome da Despesa" />
-                    <Select defaultValue="Alimentação" fullWidth id="inputTypeExpense">
-                        <MenuItem value="Alimentação">Alimentação</MenuItem>
-                        <MenuItem value="Roupa">Roupa</MenuItem>
-                        <MenuItem value="outros">Outros</MenuItem>
-                    </Select>
-                    <TextField required fullWidth id="inputDateExpense" type="date"/>
+                    <TextField required fullWidth id="inputNameExpense" label="Nome da Despesa" />
+                    <Autocomplete
+                        freeSolo
+                        fullWidth
+                        options={["Alimentação", "Roupa"]}
+                        renderInput={(params) =>{
+                            return <TextField required {...params} inputProps={{ ...params.inputProps ,id: "inputTypeExpense" }} label="Tipo de Despesa" />}
+                        }
+                    />
+                    <TextField required fullWidth id="inputDateExpense" type="date" />
                     <TextField required fullWidth id="inputValueExpense" type="number" label="Valor da Despesa" />
                     <Button type="submit" classes={{ root: "button" }} fullWidth id="buttonExpense">Adicionar </Button>
                 </form>
-                   
+
             </Card>
             <Table
                 id="tableExpense"

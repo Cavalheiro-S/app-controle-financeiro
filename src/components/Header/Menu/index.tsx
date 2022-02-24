@@ -21,7 +21,6 @@ export const MenuHeader = (props : MenuProps) => {
                                 key={index}
                                 index={index}
                                 name={item.name}
-                                stringLogo={item.classIcon}
                             />
                         )
                     })}

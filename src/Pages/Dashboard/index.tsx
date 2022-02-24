@@ -1,6 +1,5 @@
-import { useContext, useEffect } from 'react';
-
-import { MessageCard } from "../../components/Card-Message";
+import { useEffect } from 'react';
+// import { MessageCard } from "../../components/Card-Message";
 import { InfoCard } from "../../components/Info-Card";
 import {useState} from 'react';
 import axios from 'axios';
@@ -17,11 +16,15 @@ export const Dashboard = () => {
 
         axios.get<number>("http://localhost:4000/expense/total")
         .then(total => setExpenseTotal(total.data))
+
+        return () => {
+            setInvestimentTotal(0);
+            setExpenseTotal(0)
+        }
     },[])
 
     return (
         <section className="container__page dashboard">
-            <MessageCard classComponent="dashboard__message" />
             <div className='dashboard__card'>
                 <InfoCard value={1400} describe="Renda Mensal" stringLogo="account_balance" />
                 <InfoCard value={expenseTotal} describe="Despesas Mensais" stringLogo="money_off" />
